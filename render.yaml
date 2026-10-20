@@ -1,0 +1,16 @@
+# One-click deploy on Render (Blueprint). Uses a hosted LLM API + a persistent disk.
+services:
+  - type: web
+    name: my-ai
+    runtime: docker
+    plan: starter
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - {key: LLM_PROVIDER, value: openai}
+      - {key: OPENAI_BASE_URL, value: "https://api.openai.com/v1"}
+      - {key: CHAT_MODEL, value: gpt-4o-mini}
+      - {key: OPENAI_API_KEY, sync: false}
+      - {key: APP_PASSWORD, sync: false}

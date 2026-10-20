@@ -1,0 +1,21 @@
+# Fully self-hosted: the app plus a local Ollama server.
+#   docker compose up -d
+#   docker compose exec ollama ollama pull llama3.2
+#   docker compose exec ollama ollama pull nomic-embed-text
+# Then open http://localhost:8501
+services:
+  app:
+    build: .
+    ports: ["8501:8501"]
+    environment:
+      LLM_PROVIDER: ollama
+      OLLAMA_HOST: http://ollama:11434
+      # APP_PASSWORD: change-me
+    volumes: ["appdata:/data"]
+    depends_on: [ollama]
+  ollama:
+    image: ollama/ollama
+    volumes: ["ollama:/root/.ollama"]
+volumes:
+  appdata:
+  ollama:

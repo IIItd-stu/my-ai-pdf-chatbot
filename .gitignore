@@ -1,0 +1,20 @@
+# __pycache__/
+# *.pyc
+# .env
+# chat_history.db
+# .venv/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+chat_history.db
+chat_history.db-*
+chroma_db/
+documents/
+*.zip
