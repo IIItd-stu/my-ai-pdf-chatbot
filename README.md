@@ -9,6 +9,8 @@ pip install -r requirements.txt
 ollama pull llama3.2 && ollama pull nomic-embed-text
 streamlit run app.py
 ```
+## Run this 
+https://share.streamlit.io/
 
 ## Deploy (pick one)
 **Render (easiest, hosted API):** push this folder to GitHub → Render → New → Blueprint → select repo.
